@@ -1,12 +1,13 @@
-const mysql = require('mysql2/promise');
+require('dotenv').config()
+const mysql = require('mysql2/promise')
 
-//创建连接
 const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: '123456',
-    database: 'forum',
-    charset: 'utf8mb4',
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  charset: 'utf8mb4'
 })
 
-module.exports = pool;
+module.exports = pool
